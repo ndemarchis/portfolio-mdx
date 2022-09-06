@@ -18,7 +18,7 @@ const Header = (props: { className: string }) => {
 
   return (
     <div
-      className={`${props.className} flex justify-evenly flex-row items-center w-full p-5`}
+      className={`${props.className}`}
     >
       <h1 className="w-full">nick&nbsp;deMarchis</h1>
       <div className="flex flex-row-reverse">{socialItems}</div>

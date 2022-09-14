@@ -1,3 +1,4 @@
+import Link from "next/link";
 import React, { HTMLProps } from "react";
 import { SocialIcon } from "react-social-icons";
 
@@ -10,17 +11,17 @@ const Header = (props: { className: string }) => {
     <SocialIcon
       key={index}
       url={item}
-      bgColor="#00000000"
+      bgColor="#000000"
       fgColor="#ffffff"
       className="h-10"
     />
   ));
 
   return (
-    <div
-      className={`${props.className}`}
-    >
-      <h1 className="w-full">nick&nbsp;deMarchis</h1>
+    <div className={`${props.className}`}>
+      <h1 className="w-full no-underline" style={{ fontWeight: 900 }}>
+        <Link href="/">nick&nbsp;deMarchis</Link>
+      </h1>
       <div className="flex flex-row-reverse">{socialItems}</div>
     </div>
   );

@@ -1,4 +1,5 @@
-import NormalArticle from '../src/components/NormalArticle'
+import NormalArticle from '/src/components/NormalArticle'
+import Boring from '/src/components/Boring'
 
 <NormalArticle>
 hey! i'm nick deMarchis, a frontend web engineer and occasional writer.
@@ -7,7 +8,11 @@ i am currently a software engineer at [SeatGeek](http://seatgeek.com) in New Yor
 
 i graduated from Bucknell University in may 2022 with a B.S. in computer engineering and a minor in film and media studies. i was also the print managing editor for [The Bucknellian](http://bucknellian.net) student newspaper.
 
-<hr className="w-1/2 mx-auto my-10" />
 
-welcome to 
+
+<div className="flex flex-col gap-12">
+    <Boring />
+    <p className="self-end italic text-tan">{'<p> { '}but they don&apos;t have to be.{' } </p>'}</p>
+</div>
+
 </NormalArticle>

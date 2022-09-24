@@ -19,9 +19,9 @@ const Header = (props: { className: string }) => {
 
   return (
     <div className={`${props.className}`}>
-      <h1 className="w-full no-underline" style={{ fontWeight: 900 }}>
+      <h2 className="w-full no-underline" style={{ fontWeight: 900 }}>
         <Link href="/">nick&nbsp;deMarchis</Link>
-      </h1>
+      </h2>
       <div className="flex flex-row-reverse">{socialItems}</div>
     </div>
   );

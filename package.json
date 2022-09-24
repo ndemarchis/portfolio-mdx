@@ -11,6 +11,7 @@
   "dependencies": {
     "@mdx-js/loader": "^2.0.0-rc.2",
     "@mdx-js/react": "^2.0.0-rc.2",
+    "@next/mdx": "^12.3.1",
     "gray-matter": "^4.0.3",
     "next": "12.2.5",
     "react": "18.2.0",

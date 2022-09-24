@@ -1,9 +1,3 @@
-// @ts-check
-
-/**
- * @type {import('next').NextConfig}
- **/
-
 import remarkFrontmatter from 'remark-frontmatter';
 
 const nextConfig = {

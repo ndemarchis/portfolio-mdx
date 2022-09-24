@@ -16,6 +16,12 @@ module.exports = {
         mono: ["Recursive", ...fontFamily.mono],
       },
     },
+    colors: {
+      black: "#000101",
+      white: "#ffffff",
+      purple: "#7a1ddd",
+      tan: "#6b8987",
+    },
   },
   plugins: [],
 };

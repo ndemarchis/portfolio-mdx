@@ -23,5 +23,7 @@ module.exports = {
       tan: "#6b8987",
     },
   },
-  plugins: [],
+  plugins: [
+    require('@tailwindcss/typography'),
+  ],
 };

@@ -1,3 +1,4 @@
+import InLink from "next/link";
 import Link from "../src/components/Link";
 import NormalArticle from "../src/components/articles/NormalArticle";
 
@@ -19,7 +20,7 @@ const About = () => {
         newspaper.
       </p>
       <div className="w-full flex justify-center my-10">
-        <Link href="/">back to home</Link>
+        <InLink href="/">back to home</InLink>
       </div>
     </NormalArticle>
   );

@@ -22,6 +22,19 @@ const Stuff = ({ articles }: any) => {
         <ExLink href="https://bucknellian.net/110593/">(link)</ExLink>
       </p>
 
+      {articles.map((article: any) => (
+        <p key={article.filePath}>
+          <b>{article.data.title}</b>
+          {article.data.subtitle && `: ${article.data.subtitle}`}{" "}
+          <Link
+            as={`/articles/${article.filePath.replace(/\.mdx?$/, "")}`}
+            href={`/articles/[slug]`}
+          >
+            (link)
+          </Link>
+        </p>
+      ))}
+
       <h1>Videos</h1>
       <p>
         &ldquo;or as needed&rdquo; — a short film{" "}
@@ -37,17 +50,6 @@ const Stuff = ({ articles }: any) => {
         &apos;rayschedule.com{" "}
         <ExLink href="https://rayschedule.com/">(link)</ExLink>
       </p>
-
-      {articles.map((article: any) => (
-        <li key={article.filePath}>
-          <Link
-            as={`/articles/${article.filePath.replace(/\.mdx?$/, "")}`}
-            href={`/articles/[slug]`}
-          >
-            {article.data.title}
-          </Link>
-        </li>
-      ))}
 
       <div className="w-full flex justify-center my-10">
         <InLink href="/">back to home</InLink>

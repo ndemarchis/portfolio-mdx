@@ -27,9 +27,7 @@ export default function ArticlePage({
 }) {
   return (
     <>
-      <Head>
-        <ArticleMeta {...frontMatter} />
-      </Head>
+      <ArticleMeta {...frontMatter} />
       <header>
         <nav>
           <Link href="/" legacyBehavior>
@@ -42,6 +40,24 @@ export default function ArticlePage({
           <MDXRemote {...source} components={components} />
         ) : (
           <NormalArticle>
+            {frontMatter.publishedOn && (
+              <p className="italic text-right text-tan">
+                {frontMatter.publishedOn}
+              </p>
+            )}
+            <h1>
+              <span className="underline decoration-purple decoration-4">
+                {frontMatter.title}
+              </span>
+              {frontMatter.subtitle && (
+                <>
+                  <span>: </span>
+                  <span className="no-underline decoration-0 font-light italic">
+                    {frontMatter.subtitle}
+                  </span>
+                </>
+              )}
+            </h1>
             <MDXRemote {...source} components={components} />
           </NormalArticle>
         )}

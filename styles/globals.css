@@ -109,7 +109,7 @@ a {
   transition: ease-in-out;
   transition-duration: .2s;
   text-decoration: underline;
-  text-decoration-thickness: 1;
+  text-decoration-thickness: 2.5px;
   text-decoration-color: var(--purple);
   font-variation-settings: "CRSV" 0, "slnt" 0, "wght" 200;
 }

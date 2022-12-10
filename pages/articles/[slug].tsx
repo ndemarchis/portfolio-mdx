@@ -28,10 +28,10 @@ export default function ArticlePage({
   return (
     <>
       <ArticleMeta {...frontMatter} />
-      <header>
+      <header className="p-2">
         <nav>
           <Link href="/" legacyBehavior>
-            <a>👈 Go back home</a>
+            <a>⭠ Return to your home</a>
           </Link>
         </nav>
       </header>

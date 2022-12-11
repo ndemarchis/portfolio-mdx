@@ -30,9 +30,10 @@ export default function ArticlePage({
       <ArticleMeta {...frontMatter} />
       <header className="p-2">
         <nav>
-          <Link href="/" legacyBehavior>
-            <a>⭠ Return to your home</a>
-          </Link>
+          <div className="flex justify-between p-4">
+            <Link href="/stuff">⭠ back to the cool articles</Link>
+            <Link href="/">back to your home ⭢</Link>
+          </div>
         </nav>
       </header>
       <main>

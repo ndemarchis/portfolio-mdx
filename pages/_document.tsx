@@ -3,8 +3,7 @@ import { Html, Head, Main, NextScript } from "next/document";
 const MyDocument = () => {
   return (
     <Html lang="en">
-      <Head>
-      </Head>
+      <Head></Head>
       <body>
         <Main />
         <NextScript />

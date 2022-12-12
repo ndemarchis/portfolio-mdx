@@ -5,7 +5,9 @@
 /*
   1. Use a more-intuitive box-sizing model.
 */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
 }
 /*
@@ -17,7 +19,8 @@
 /*
   3. Allow percentage-based heights in the application
 */
-html, body {
+html,
+body {
   height: 100%;
 }
 /*
@@ -32,26 +35,40 @@ body {
 /*
   6. Improve media defaults
 */
-img, picture, video, canvas, svg {
+img,
+picture,
+video,
+canvas,
+svg {
   display: block;
   max-width: 100%;
 }
 /*
   7. Remove built-in form typography styles
 */
-input, button, textarea, select {
+input,
+button,
+textarea,
+select {
   font: inherit;
 }
 /*
   8. Avoid text overflows
 */
-p, h1, h2, h3, h4, h5, h6 {
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   overflow-wrap: break-word;
 }
 /*
   9. Create a root stacking context
 */
-#root, #__next {
+#root,
+#__next {
   isolation: isolate;
 }
 
@@ -59,6 +76,7 @@ p, h1, h2, h3, h4, h5, h6 {
   --black: #000101;
   --white: #ffffff;
   --purple: #7a1ddd;
+  --lightpurple: #cb9bff;
   --tan: #6b8987;
 }
 
@@ -67,7 +85,7 @@ body {
   padding: 0;
   margin: 0;
   height: 100%;
-  font-family: 'Inter', Helvetica, Arial, sans-serif;
+  font-family: "Inter", Helvetica, Arial, sans-serif;
   font-variation-settings: "CRSV" 0, "slnt" 0;
 }
 
@@ -107,11 +125,11 @@ body,
 a {
   color: inherit;
   transition: ease-in-out;
-  transition-duration: .2s;
+  transition-duration: 0.2s;
   text-decoration: underline;
   text-decoration-thickness: 2.5px;
   text-decoration-color: var(--purple);
-  font-variation-settings: "CRSV" 0, "slnt" 0, "wght" 200;
+  font-variation-settings: "CRSV" 0, "slnt" 0, "wght" 350;
 }
 
 a:hover {
@@ -141,6 +159,16 @@ a:hover {
   font-weight: 100 900;
   font-display: inherit;
   src: url("/fonts/inter-var-latin.woff2") format("woff2");
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
+    U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
+    U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: "Libre Baskerville";
+  font-weight: 400 700;
+  font-display: inherit;
+  src: url("/fonts/libre-baskerville-v5-latin-regular.woff2");
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA,
     U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;

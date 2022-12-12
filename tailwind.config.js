@@ -14,6 +14,7 @@ module.exports = {
         primary: ["Inter", ...fontFamily.sans],
         secondary: ["Commissioner", ...fontFamily.sans],
         mono: ["Recursive", ...fontFamily.mono],
+        serif: ["Libre Baskerville", ...fontFamily.serif],
       },
     },
     colors: {

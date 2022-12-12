@@ -8,6 +8,7 @@ import Link from "next/link";
 import path from "path";
 import ArticleMeta from "../../src/components/articles/ArticleMeta";
 import NormalArticle from "../../src/components/articles/NormalArticle";
+import ExtLink from "../../src/components/Link";
 import { articleFilePaths, ARTICLES_PATH } from "../../utils/mdxUtils";
 
 const components = {
@@ -15,6 +16,9 @@ const components = {
   // useful for conditionally loading components for certain routes.
   // See the notes in README.md for more details.
   //   TestComponent: dynamic(() => import('../../components/TestComponent')),
+  a: ExtLink,
+  Scripture: dynamic(() => import('../../src/components/texts/Scripture')),
+  Verse: dynamic(() => import('../../src/components/texts/Verse')),
   Head,
 };
 

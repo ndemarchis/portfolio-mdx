@@ -7,8 +7,8 @@ const ArticleMeta = (props: ArticleMetaProps) => {
       <meta property="og:title" content={props.title} />
       <meta property="og:description" content={props.description}/>
       <meta property="og:type" content="article"/>
-      <meta property="og:url" content={`https://nickdemarchis.com/articles/${props.slug}`}/>
-      <meta property="og:image" content={`/articles/${props.slug}/${props.ogImage}`} />
+      {/* <meta property="og:url" content={`https://nickdemarchis.com/articles/${props.slug}`}/> */}
+      <meta property="og:image" content={`/articles/${props.ogImage}`} />
       <meta property="article:published_time" content={props.publishedOn} />
     </Head>
   );

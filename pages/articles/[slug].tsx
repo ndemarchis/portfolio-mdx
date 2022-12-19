@@ -5,11 +5,12 @@ import { serialize } from "next-mdx-remote/serialize";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
+import NextImage from "next/image";
 import path from "path";
-import ArticleMeta from "../../src/components/articles/ArticleMeta";
-import NormalArticle from "../../src/components/articles/NormalArticle";
 import ExtLink from "../../src/components/Link";
 import { articleFilePaths, ARTICLES_PATH } from "../../utils/mdxUtils";
+import imageMetadata from "../../src/imageMetadata";
+import { NormalArticle, ArticleMeta, normalArticleHeadline, normalArticleFooter } from "../../src/components/articles";
 
 const components = {
   // It also works with dynamically-imported components, which is especially
@@ -17,8 +18,22 @@ const components = {
   // See the notes in README.md for more details.
   //   TestComponent: dynamic(() => import('../../components/TestComponent')),
   a: ExtLink,
-  Scripture: dynamic(() => import('../../src/components/texts/Scripture')),
-  Verse: dynamic(() => import('../../src/components/texts/Verse')),
+  img: ({
+    src,
+    height,
+    width,
+    alt,
+    ...rest
+  }: {
+    src: string;
+    height: number;
+    width: number;
+    alt: string;
+  }) => (
+    <NextImage src={src} height={height} width={width} alt={alt} {...rest} />
+  ),
+  Scripture: dynamic(() => import("../../src/components/texts/Scripture")),
+  Verse: dynamic(() => import("../../src/components/texts/Verse")),
   Head,
 };
 
@@ -45,25 +60,10 @@ export default function ArticlePage({
           <MDXRemote {...source} components={components} />
         ) : (
           <NormalArticle>
-            {frontMatter.publishedOn && (
-              <p className="italic text-right text-tan">
-                {frontMatter.publishedOn}
-              </p>
-            )}
-            <h1>
-              <span className="underline decoration-purple decoration-4">
-                {frontMatter.title}
-              </span>
-              {frontMatter.subtitle && (
-                <>
-                  <span>: </span>
-                  <span className="no-underline decoration-0 font-light italic">
-                    {frontMatter.subtitle}
-                  </span>
-                </>
-              )}
-            </h1>
+            <p className="text-right italic">{frontMatter?.publishedOn}</p>
+            {normalArticleHeadline(frontMatter)}
             <MDXRemote {...source} components={components} />
+            {normalArticleFooter(frontMatter)}
           </NormalArticle>
         )}
       </main>
@@ -81,7 +81,7 @@ export const getStaticProps = async ({ params }: any) => {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
       remarkPlugins: [],
-      rehypePlugins: [],
+      rehypePlugins: [imageMetadata],
     },
     scope: data,
   });
@@ -106,3 +106,4 @@ export const getStaticPaths = async () => {
     fallback: false,
   };
 };
+

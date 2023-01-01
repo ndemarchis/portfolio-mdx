@@ -1,10 +1,14 @@
 import InLink from "next/link";
 import Link from "../src/components/Link";
 import NormalArticle from "../src/components/articles/NormalArticle";
+import Head from "next/head";
 
 const About = () => {
   return (
     <NormalArticle>
+      <Head>
+        <title>about | nick deMarchis</title>
+      </Head>
       <p>
         i&rsquo;m nick deMarchis, a frontend web engineer and occasional writer.
       </p>

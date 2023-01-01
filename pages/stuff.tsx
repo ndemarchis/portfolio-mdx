@@ -1,18 +1,23 @@
 import fs from "fs";
 import matter from "gray-matter";
 import Link from "next/link";
+import InLink from "next/link";
+import Head from "next/head";
 import path from "path";
+
 import { articleFilePaths, ARTICLES_PATH } from "../utils/mdxUtils";
 
 import NormalArticle from "../src/components/articles/NormalArticle";
 import ExLink from "../src/components/Link";
-import InLink from "next/link";
 
 const Stuff = (props: {
   articles: { content: string; data: ArticleMetaProps; filePath: string }[];
 }) => {
   return (
     <NormalArticle>
+      <Head>
+        <title>stuff | nick deMarchis</title>
+      </Head>
       <h1>Articles</h1>
       <p>
         <b>It’s all about trust</b>: As Chief of Public Safety, Steve Barilar

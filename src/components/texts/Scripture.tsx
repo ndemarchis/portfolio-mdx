@@ -3,7 +3,7 @@
 const Scripture = ({ children }: React.PropsWithChildren<{}>) => {
   return (
     <>
-      <span className="font-serif text-[pink] font-bold">{children}</span>
+      <span className="font-serif text-lightpurple font-bold">{children}</span>
     </>
   );
 };

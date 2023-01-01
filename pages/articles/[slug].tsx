@@ -34,6 +34,7 @@ const components = {
   ),
   Scripture: dynamic(() => import("../../src/components/texts/Scripture")),
   Verse: dynamic(() => import("../../src/components/texts/Verse")),
+  Bible: dynamic(() => import("../../src/components/texts/Bible")),
   Head,
 };
 

@@ -5,7 +5,7 @@ const Scripture = ({
 }: React.PropsWithChildren<Record<string, never>>) => {
   return (
     <>
-      <span className="font-serif text-[pink] font-bold">{children}</span>
+      <span className="font-serif text-lightpurple font-bold">{children}</span>
     </>
   );
 };

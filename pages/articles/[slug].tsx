@@ -29,6 +29,7 @@ const components: MDXRemoteProps["components"] = {
     () => import("../../src/components/articles/NoMarginsArticle")
   ),
   Window: dynamic(() => import("../../src/components/articles/Window")),
+  Bible: dynamic(() => import("../../src/components/texts/Bible")),
   Head,
 };
 

@@ -9,14 +9,13 @@ const MyDocument = () => {
           async
           src="https://www.googletagmanager.com/gtag/js?id=G-DWVJ6EDJSX"
         />
-        <script>
-          {`
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+        <Script id="ga">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
 
-  gtag('config', 'G-DWVJ6EDJSX');`}
-        </script>
+gtag('config', 'G-DWVJ6EDJSX');`}
+        </Script>
       </Head>
       <body>
         <Main />

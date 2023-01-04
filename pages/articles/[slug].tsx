@@ -10,7 +10,12 @@ import path from "path";
 import ExtLink from "../../src/components/Link";
 import { articleFilePaths, ARTICLES_PATH } from "../../utils/mdxUtils";
 import imageMetadata from "../../src/imageMetadata";
-import { NormalArticle, ArticleMeta, normalArticleHeadline, normalArticleFooter } from "../../src/components/articles";
+import {
+  NormalArticle,
+  ArticleMeta,
+  normalArticleHeadline,
+  normalArticleFooter,
+} from "../../src/components/articles";
 
 const components = {
   // It also works with dynamically-imported components, which is especially
@@ -82,7 +87,9 @@ export const getStaticProps = async ({ params }: any) => {
     mdxOptions: {
       remarkPlugins: [],
       rehypePlugins: [imageMetadata],
+      development: false,
     },
+
     scope: data,
   });
 
@@ -106,4 +113,3 @@ export const getStaticPaths = async () => {
     fallback: false,
   };
 };
-

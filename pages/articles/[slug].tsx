@@ -16,6 +16,7 @@ import {
   normalArticleHeadline,
   normalArticleFooter,
 } from "../../src/components/articles";
+import { formatDate } from "../../utils/dateUtils";
 
 const components = {
   // It also works with dynamically-imported components, which is especially
@@ -65,7 +66,9 @@ export default function ArticlePage({
           <MDXRemote {...source} components={components} />
         ) : (
           <NormalArticle>
-            <p className="text-right italic">{frontMatter?.publishedOn}</p>
+            <p className="text-right italic">
+              {frontMatter?.publishedOn && formatDate(frontMatter?.publishedOn)}
+            </p>
             {normalArticleHeadline(frontMatter)}
             <MDXRemote {...source} components={components} />
             {normalArticleFooter(frontMatter)}

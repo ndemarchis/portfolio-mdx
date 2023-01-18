@@ -5,7 +5,7 @@ type ArticleMetaProps = {
 
   authors?: string[];
   publication?: string;
-  publishedOn?: string;
+  publishedOn: string;
   publishedUrl?: string;
 
   description?: string;

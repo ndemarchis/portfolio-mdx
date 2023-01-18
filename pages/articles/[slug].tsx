@@ -10,7 +10,13 @@ import path from "path";
 import ExtLink from "../../src/components/Link";
 import { articleFilePaths, ARTICLES_PATH } from "../../utils/mdxUtils";
 import imageMetadata from "../../src/imageMetadata";
-import { NormalArticle, ArticleMeta, normalArticleHeadline, normalArticleFooter } from "../../src/components/articles";
+import {
+  NormalArticle,
+  ArticleMeta,
+  normalArticleHeadline,
+  normalArticleFooter,
+} from "../../src/components/articles";
+import { formatDate } from "../../utils/dateUtils";
 
 const components = {
   // It also works with dynamically-imported components, which is especially
@@ -60,7 +66,9 @@ export default function ArticlePage({
           <MDXRemote {...source} components={components} />
         ) : (
           <NormalArticle>
-            <p className="text-right italic">{frontMatter?.publishedOn}</p>
+            <p className="text-right italic">
+              {frontMatter?.publishedOn && formatDate(frontMatter?.publishedOn)}
+            </p>
             {normalArticleHeadline(frontMatter)}
             <MDXRemote {...source} components={components} />
             {normalArticleFooter(frontMatter)}
@@ -106,4 +114,3 @@ export const getStaticPaths = async () => {
     fallback: false,
   };
 };
-

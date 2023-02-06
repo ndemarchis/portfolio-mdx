@@ -56,7 +56,7 @@ export default function ArticlePage({
       <header className="p-2">
         <nav>
           <div className="flex justify-between p-4">
-            <Link href="/stuff">⭠ back to the cool articles</Link>
+            <Link href="/stuff">⭠ back to articles</Link>
             <Link href="/">back to your home ⭢</Link>
           </div>
         </nav>

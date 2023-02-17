@@ -17,11 +17,10 @@ const About = () => {
         <Link href="https://seatgeek.com/about">SeatGeek</Link> in New York.
       </p>
       <p>
-        i graduated from Bucknell University in may 2022 with a B.S. in computer
-        engineering and a minor in film and media studies. i was also the print
-        managing editor for{" "}
-        <Link href="http://bucknellian.net">The Bucknellian</Link> student
-        newspaper.
+        i graduated from Bucknell University with a B.S. in computer engineering
+        and a minor in film and media studies. i was also the print managing
+        editor for <Link href="http://bucknellian.net">The Bucknellian</Link>{" "}
+        student newspaper.
       </p>
       <div className="w-full flex justify-center my-10">
         <InLink href="/">back to home</InLink>

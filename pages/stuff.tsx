@@ -67,6 +67,10 @@ const Stuff = (props: {
         <ExLink href="https://youtu.be/Jz_2KaMyF5Y/">(link)</ExLink>
       </p>
       <p className={`${hoverPara}`}>
+        &ldquo;field notes&rdquo; — bucknell university&apos;s 2021 senior art exhibition{" "}
+        <ExLink href="https://museum.bucknell.edu/2021/01/01/annual-senior-art-exhibition-presentation-tuesday-april-20-6-p-m/">(link)</ExLink>
+      </p>
+      <p className={`${hoverPara}`}>
         &ldquo;let it go&rdquo; — a piano and cello cover of james bay{" "}
         <ExLink href="https://youtu.be/3tOWhpLQrYc">(link)</ExLink>
       </p>

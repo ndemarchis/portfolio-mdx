@@ -18,7 +18,7 @@ const Entry = ({
   };
 }) => {
   return (
-    <p className="outline outline-tan/50 outline-0 hover:outline-4 outline-offset-8 overflow-visible rounded-lg transition-all">
+    <p className="outline outline-tan/50 outline-0 hover:outline-4 outline-offset-8 overflow-visible rounded-lg transition-all pb-[2.5px] px-1">
       <>
         {title && (subtitle ? <b>{title}</b> : title)}
         {title && subtitle && ": "}
@@ -27,7 +27,9 @@ const Entry = ({
           (link.out ? (
             <ExLink href={link.href}>(link)</ExLink>
           ) : (
-            <InLink as={link.as} href={link.href}>(link)</InLink>
+            <InLink as={link.as} href={link.href}>
+              (link)
+            </InLink>
           ))}
       </>
       <>

@@ -10,6 +10,7 @@ import { articleFilePaths, ARTICLES_PATH } from "../utils/mdxUtils";
 import NormalArticle from "../src/components/articles/NormalArticle";
 import ExLink from "../src/components/Link";
 import { formatDate } from "../utils/dateUtils";
+import Entry from "../src/components/Entry";
 
 const hoverPara =
   "outline outline-tan/50 outline-0 hover:outline-4 outline-offset-8 overflow-visible rounded-lg transition-all";
@@ -23,63 +24,71 @@ const Stuff = (props: {
         <title>stuff | nick deMarchis</title>
       </Head>
       <h1>Articles</h1>
-      <p className={`${hoverPara}`}>
-        <b>It’s all about trust</b>: As Chief of Public Safety, Steve Barilar
-        worked to build it&nbsp;—&nbsp;how did he do?{" "}
-        <ExLink href="https://bucknellian.net/108685/">(link)</ExLink>
-        <p className="text-tan text-xs italic">
-          The Bucknellian, January 28, 2022
-        </p>
-      </p>
-      <p className={`${hoverPara}`}>
-        <b>Love what you do</b>: An interview with Dean Kari Conrad{" "}
-        <ExLink href="https://bucknellian.net/110593/">(link)</ExLink>
-        <p className="text-tan text-xs italic">
-          The Bucknellian, April 1, 2022
-        </p>
-      </p>
+      <Entry
+        title="It’s all about trust"
+        subtitle="As Chief of Public Safety, Steve Barilar worked to build it&nbsp;—&nbsp;how did he do?"
+        description="The Bucknellian, January 28, 2022"
+        link={{ href: "https://bucknellian.net/108685/", out: true }}
+      />
+      <Entry
+        title="Love what you do"
+        subtitle="An interview with Dean Kari Conrad"
+        description="The Bucknellian, April 1, 2022"
+        link={{ href: "https://bucknellian.net/110593/", out: true }}
+      />
 
       {props.articles
         .sort((a, b) => -a.data?.publishedOn.localeCompare(b.data?.publishedOn))
         .map((article) => (
-          <p key={article.filePath} className={`${hoverPara}`}>
-            <b>{article.data.title}</b>
-            {article.data.subtitle && `: ${article.data.subtitle}`}{" "}
-            <Link
-              as={`/articles/${article.filePath.replace(/\.mdx?$/, "")}`}
-              href={`/articles/[slug]`}
-            >
-              (link)
-            </Link>
-            <p className="text-tan text-xs italic">
-              {[
-                article.data?.publication,
-                article.data?.publishedOn &&
-                  formatDate(article.data.publishedOn),
-              ].join(", ")}
-            </p>
-          </p>
+          <Entry
+            key={article.filePath}
+            title={article.data.title}
+            subtitle={article.data.subtitle}
+            link={{
+              out: false,
+              as: `/articles/${article.filePath.replace(/\.mdx?$/, "")}`,
+              href: "/articles/[slug]",
+            }}
+            description={[
+              article.data?.publication,
+              article.data?.publishedOn && formatDate(article.data.publishedOn),
+            ].join(", ")}
+          />
         ))}
 
       <h1 className="mt-8">Videos</h1>
-      <p className={`${hoverPara}`}>
-        &ldquo;or as needed&rdquo; — a short film{" "}
-        <ExLink href="https://youtu.be/Jz_2KaMyF5Y/">(link)</ExLink>
-      </p>
-      <p className={`${hoverPara}`}>
-        &ldquo;field notes&rdquo; — bucknell university&apos;s 2021 senior art exhibition{" "}
-        <ExLink href="https://museum.bucknell.edu/2021/01/01/annual-senior-art-exhibition-presentation-tuesday-april-20-6-p-m/">(link)</ExLink>
-      </p>
-      <p className={`${hoverPara}`}>
-        &ldquo;let it go&rdquo; — a piano and cello cover of james bay{" "}
-        <ExLink href="https://youtu.be/3tOWhpLQrYc">(link)</ExLink>
-      </p>
-
+      <Entry
+        title="&ldquo;or as needed&rdquo;"
+        subtitle="a short film"
+        link={{
+          out: true,
+          href: "https://youtu.be/Jz_2KaMyF5Y/",
+        }}
+      />
+      <Entry
+        title="&ldquo;field notes&rdquo;"
+        subtitle="bucknell university's 2021 senior art exhibition"
+        link={{
+          out: true,
+          href: "https://museum.bucknell.edu/2021/01/01/annual-senior-art-exhibition-presentation-tuesday-april-20-6-p-m/",
+        }}
+      />
+      <Entry
+        title="&ldquo;let it go&rdquo;"
+        subtitle="a piano and cello cover of james bay"
+        link={{
+          out: true,
+          href: "https://youtu.be/3tOWhpLQrYc",
+        }}
+      />
       <h1 className="mt-8">Projects</h1>
-      <p className={`${hoverPara}`}>
-        &apos;rayschedule.com{" "}
-        <ExLink href="https://rayschedule.com/">(link)</ExLink>
-      </p>
+      <Entry
+        title="'rayschedule.com"
+        link={{
+          out: true,
+          href: "https://rayschedule.com/",
+        }}
+      />
 
       <div className="w-full flex justify-center my-10">
         <InLink href="/">back to home</InLink>

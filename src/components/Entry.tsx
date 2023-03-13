@@ -18,8 +18,8 @@ const Entry = ({
   };
 }) => {
   return (
-    <p className="outline outline-tan/50 outline-0 hover:outline-4 outline-offset-8 overflow-visible rounded-lg transition-all pb-[2.5px] px-1">
-      <>
+    <p className="outline outline-tan/50 outline-0 hover:outline-4 outline-offset-8 overflow-visible rounded-lg transition-all my-1 px-1 flex flex-col gap-1">
+      <div className="leading-tight">
         {title && (subtitle ? <b>{title}</b> : title)}
         {title && subtitle && ": "}
         {subtitle}{" "}
@@ -31,12 +31,10 @@ const Entry = ({
               (link)
             </InLink>
           ))}
-      </>
-      <>
-        {description && (
-          <p className="text-tan text-xs italic">{description}</p>
-        )}
-      </>
+      </div>
+      {description && (
+        <div className="text-tan text-xs italic">{description}</div>
+      )}
     </p>
   );
 };

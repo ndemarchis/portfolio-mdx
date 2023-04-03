@@ -41,6 +41,7 @@ const components = {
   Scripture: dynamic(() => import("../../src/components/texts/Scripture")),
   Verse: dynamic(() => import("../../src/components/texts/Verse")),
   NoMarginsArticle: dynamic(() => import("../../src/components/articles/NoMarginsArticle")),
+  Window: dynamic(() => import("../../src/components/articles/Window")),
   Head,
 };
 

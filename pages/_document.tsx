@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import { Html, Head, Main, NextScript } from "next/document";
 import Script from "next/script";
 
@@ -17,7 +18,6 @@ const MyDocument = () => {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              
               gtag('config', 'G-DWVJ6EDJSX');
             `,
           }}

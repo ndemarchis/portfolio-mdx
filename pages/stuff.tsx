@@ -12,9 +12,6 @@ import ExLink from "../src/components/Link";
 import { formatDate } from "../utils/dateUtils";
 import Entry from "../src/components/Entry";
 
-const hoverPara =
-  "outline outline-tan/50 outline-0 hover:outline-4 outline-offset-8 overflow-visible rounded-lg transition-all";
-
 const Stuff = (props: {
   articles: { content: string; data: ArticleMetaProps; filePath: string }[];
 }) => {
@@ -56,7 +53,7 @@ const Stuff = (props: {
           />
         ))}
 
-      <h1 className="mt-8">Videos</h1>
+      <h1 className="pt-8">Videos</h1>
       <Entry
         title="&ldquo;or as needed&rdquo;"
         subtitle="a short film"
@@ -81,7 +78,7 @@ const Stuff = (props: {
           href: "https://youtu.be/3tOWhpLQrYc",
         }}
       />
-      <h1 className="mt-8">Projects</h1>
+      <h1 className="pt-8">Projects</h1>
       <Entry
         title="'rayschedule.com"
         link={{
@@ -91,10 +88,9 @@ const Stuff = (props: {
       />
 
       <div className="w-full flex justify-center my-10">
-        <InLink href="/">back to home</InLink>
-      </div>
-      <div className="w-full flex justify-center my-12 italic font-extralight">
-        and more to come...
+        <InLink href="/" className="link">
+          back to home
+        </InLink>
       </div>
     </NormalArticle>
   );

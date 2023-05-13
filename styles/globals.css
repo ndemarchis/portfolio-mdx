@@ -122,7 +122,7 @@ body,
   height: 100%;
 }
 
-a {
+.link {
   color: inherit;
   transition: ease-in-out;
   transition-duration: 0.2s;
@@ -132,7 +132,8 @@ a {
   font-variation-settings: "CRSV" 0, "slnt" 0, "wght" 350;
 }
 
-a:hover {
+.link:hover,
+.link-hover {
   color: var(--tan);
   text-decoration-thickness: 0.01;
   text-decoration-color: var(--black);

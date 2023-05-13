@@ -12,14 +12,15 @@ const Home = () => {
         nick deMarchis
       </h1>
       <div className="flex flex-row gap-5">
-        <Link href="/about">who am i?</Link>
-        <Link href="/stuff">what have i done?</Link>
+        <Link href="/about" className="link">
+          who am i?
+        </Link>
+        <Link href="/stuff" className="link">
+          what have i done?
+        </Link>
       </div>
       <div className="flex flex-row">
         <SocialIcons />
-      </div>
-      <div className="my-10 font-extralight italic text-stone-600">
-        more coming soon...
       </div>
     </div>
   );

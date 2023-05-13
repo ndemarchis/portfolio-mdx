@@ -23,7 +23,9 @@ const About = () => {
         student newspaper.
       </p>
       <div className="w-full flex justify-center my-10">
-        <InLink href="/">back to home</InLink>
+        <InLink href="/" className="link">
+          back to home
+        </InLink>
       </div>
     </NormalArticle>
   );

@@ -5,7 +5,7 @@ import { serialize } from "next-mdx-remote/serialize";
 import dynamic from "next/dynamic";
 import Head from "next/head";
 import Link from "next/link";
-import NextImage from "next/legacy/image";
+import NextImage from "next/image";
 import path from "path";
 import ExtLink from "../../src/components/Link";
 import { articleFilePaths, ARTICLES_PATH } from "../../utils/mdxUtils";

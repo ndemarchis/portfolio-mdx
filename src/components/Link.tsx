@@ -13,9 +13,8 @@ const Link = ({
       href={props.href}
       target="_blank"
       rel="noreferrer noopener"
-      legacyBehavior
     >
-      {props.children}
+      <>{props.children}</>
     </NextLink>
   );
 };

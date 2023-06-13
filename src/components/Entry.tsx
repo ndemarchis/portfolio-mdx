@@ -24,7 +24,7 @@ const Link = ({
       );
     } else {
       return (
-        <InLink as={link.as} href={link.href} {...props} legacyBehavior>
+        <InLink as={link.as} href={link.href} {...props}>
           {children}
         </InLink>
       );

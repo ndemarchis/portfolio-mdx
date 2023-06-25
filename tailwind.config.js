@@ -11,10 +11,10 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        primary: ["Inter", ...fontFamily.sans],
+        primary: ["Inter", "var(--font-inter)", ...fontFamily.sans],
         secondary: ["Commissioner", ...fontFamily.sans],
-        mono: ["Recursive", ...fontFamily.mono],
-        serif: ["Libre Baskerville", ...fontFamily.serif],
+        mono: ["Courier New", ...fontFamily.mono],
+        serif: ["Libre Baskerville", "var(--font-libre)", ...fontFamily.serif],
       },
     },
     colors: {

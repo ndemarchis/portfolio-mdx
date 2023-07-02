@@ -46,12 +46,12 @@ const Entry = ({
   return (
     <Link
       link={link}
-      className="outline outline-tan/50 outline-0 hover:outline-4 outline-offset-8 overflow-visible rounded-lg transition-all hover:text-tan my-1 px-1 w-full flex flex-col gap-1 group"
+      className="entry outline outline-tan/50 outline-0 hover:outline-4 outline-offset-8 overflow-visible rounded-lg transition-all hover:text-tan my-1 px-1 w-full flex flex-col gap-1 group"
     >
       <div className="leading-tight">
         {title && (
-          <span className="link group-hover:link-hover">
-            {subtitle ? <b>{title}</b> : title}
+          <span className="link-managed">
+            {subtitle ? <span>{title}</span> : title}
           </span>
         )}
         {title && subtitle && ": "}

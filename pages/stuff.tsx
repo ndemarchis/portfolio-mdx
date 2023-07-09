@@ -1,7 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
 import Link from "next/link";
-import InLink from "next/link";
 import Head from "next/head";
 import path from "path";
 
@@ -53,6 +52,8 @@ const Stuff = (props: {
           />
         ))}
 
+      <ExLink href="https://muckrack.com/ndemarchis" className="link text-right w-full italic text-sm">read more...</ExLink>
+
       <h1 className="pt-8">Videos</h1>
       <Entry
         title="&ldquo;or as needed&rdquo;"
@@ -88,9 +89,9 @@ const Stuff = (props: {
       />
 
       <div className="w-full flex justify-center my-10">
-        <InLink href="/" className="link">
+        <Link href="/" className="link">
           back to home
-        </InLink>
+        </Link>
       </div>
     </NormalArticle>
   );

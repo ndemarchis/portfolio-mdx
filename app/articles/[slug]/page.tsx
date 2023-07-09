@@ -62,12 +62,18 @@ export default async function ArticlePage({ params }: any) {
         </nav>
       </header>
       <main>
-        <p className="text-right italic">
-          {frontMatter?.publishedOn && formatDate(frontMatter?.publishedOn)}
-        </p>
-        {normalArticleHeadline(frontMatter)}
-        <MDXRemote source={source} components={components} />
-        {normalArticleFooter(frontMatter)}
+        {frontMatter.abnormal?.toString() === "true" || !frontMatter ? (
+          <MDXRemote {...source} components={components} />
+        ) : (
+          <>
+            <p className="text-right italic">
+              {frontMatter?.publishedOn && formatDate(frontMatter?.publishedOn)}
+            </p>
+            {normalArticleHeadline(frontMatter)}
+            <MDXRemote source={source} components={components} />
+            {normalArticleFooter(frontMatter)}
+          </>
+        )}
       </main>
     </>
   );

@@ -63,13 +63,15 @@ export default async function ArticlePage({ params }: any) {
       </header>
       <main>
         {frontMatter.abnormal?.toString() === "true" || !frontMatter ? (
-          <MDXRemote {...source} components={components} />
+          // {/* @ts-expect-error Server Component */}
+          <MDXRemote source={source} components={components} />
         ) : (
           <>
             <p className="text-right italic">
               {frontMatter?.publishedOn && formatDate(frontMatter?.publishedOn)}
             </p>
             {normalArticleHeadline(frontMatter)}
+            {/* @ts-expect-error Server Component */}
             <MDXRemote source={source} components={components} />
             {normalArticleFooter(frontMatter)}
           </>

@@ -1,3 +1,4 @@
+import React, { PropsWithChildren } from "react";
 import fs from "fs";
 import matter from "gray-matter";
 import { MDXRemote } from "next-mdx-remote/rsc";
@@ -18,7 +19,7 @@ import {
 } from "../../../src/components/articles";
 import { formatDate } from "../../../utils/dateUtils";
 
-const components = {
+const components: Record<string, any> = {
   // It also works with dynamically-imported components, which is especially
   // useful for conditionally loading components for certain routes.
   // See the notes in README.md for more details.
@@ -49,7 +50,10 @@ const components = {
 
 export default async function ArticlePage({ params }: any) {
   const { source, frontMatter } = await getArticleData({ params });
-  console.log({ source, frontMatter });
+  const RemotedMDX = () => {
+    // @ts-expect-error Server Component
+    return <MDXRemote source={source} components={components} />;
+  };
   return (
     <>
       {/* <ArticleMeta {...frontMatter} /> */}
@@ -64,15 +68,16 @@ export default async function ArticlePage({ params }: any) {
       <main>
         {frontMatter.abnormal?.toString() === "true" || !frontMatter ? (
           // {/* @ts-expect-error Server Component */}
-          <MDXRemote source={source} components={components} />
+          <RemotedMDX />
         ) : (
           <>
             <p className="text-right italic">
               {frontMatter?.publishedOn && formatDate(frontMatter?.publishedOn)}
             </p>
-            {normalArticleHeadline(frontMatter)}
             {/* @ts-expect-error Server Component */}
-            <MDXRemote source={source} components={components} />
+            {normalArticleHeadline(frontMatter)}
+            <RemotedMDX />
+            {/* @ts-expect-error Server Component */}
             {normalArticleFooter(frontMatter)}
           </>
         )}

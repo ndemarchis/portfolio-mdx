@@ -1,6 +1,6 @@
 import fs from "fs";
 import matter from "gray-matter";
-import { MDXRemote } from "next-mdx-remote";
+import { MDXRemote, MDXRemoteProps } from "next-mdx-remote";
 import { serialize } from "next-mdx-remote/serialize";
 import dynamic from "next/dynamic";
 import Head from "next/head";
@@ -17,27 +17,12 @@ import {
   normalArticleFooter,
 } from "../../src/components/articles";
 import { formatDate } from "../../utils/dateUtils";
+import { GetStaticPaths, GetStaticProps } from "next";
 
-const components = {
-  // It also works with dynamically-imported components, which is especially
-  // useful for conditionally loading components for certain routes.
-  // See the notes in README.md for more details.
-  //   TestComponent: dynamic(() => import('../../components/TestComponent')),
+const components: MDXRemoteProps["components"] = {
   a: ExtLink,
-  img: ({
-    src,
-    height,
-    width,
-    alt,
-    ...rest
-  }: {
-    src: string;
-    height: number;
-    width: number;
-    alt: string;
-  }) => (
-    <NextImage src={src} height={height} width={width} alt={alt} {...rest} />
-  ),
+  // @ts-expect-error something with src being undefined
+  img: NextImage,
   Scripture: dynamic(() => import("../../src/components/texts/Scripture")),
   Verse: dynamic(() => import("../../src/components/texts/Verse")),
   NoMarginsArticle: dynamic(
@@ -51,7 +36,7 @@ export default function ArticlePage({
   source,
   frontMatter,
 }: {
-  source: any;
+  source: Omit<MDXRemoteProps, "components" | "lazy">;
   frontMatter: ArticleMetaProps;
 }) {
   return (
@@ -83,7 +68,9 @@ export default function ArticlePage({
   );
 }
 
-export const getStaticProps = async ({ params }: any) => {
+export const getStaticProps: GetStaticProps<{
+  [key: string]: unknown;
+}> = async ({ params = { slug: "/" } }) => {
   const articleFilePath = path.join(ARTICLES_PATH, `${params.slug}.mdx`);
   const source = fs.readFileSync(articleFilePath);
 
@@ -108,7 +95,7 @@ export const getStaticProps = async ({ params }: any) => {
   };
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   const paths = articleFilePaths
     // Remove file extensions for page paths
     .map((path) => path.replace(/\.mdx?$/, ""))

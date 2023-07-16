@@ -1,9 +1,10 @@
 import ArticleMeta from "./ArticleMeta";
 
-const NormalArticle = (props: {
-  children: any;
-  metaProps?: ArticleMetaProps;
-}) => {
+const NormalArticle = (
+  props: React.PropsWithChildren<{
+    metaProps?: ArticleMetaProps;
+  }>
+) => {
   return (
     <>
       {props.metaProps && <ArticleMeta {...props.metaProps} />}

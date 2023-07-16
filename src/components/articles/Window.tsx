@@ -1,6 +1,5 @@
-
-
-interface Props extends React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>> {
+interface Props
+  extends React.PropsWithChildren<React.HTMLAttributes<HTMLDivElement>> {
   background: React.ReactNode;
   screensHeight?: number;
 }
@@ -8,16 +7,16 @@ interface Props extends React.PropsWithChildren<React.HTMLAttributes<HTMLDivElem
 const Window = (props: Props) => {
   const { children, style, screensHeight, ...rest } = props;
   return (
-    <div style=
-      {{
+    <div
+      style={{
         ...style,
         height: screensHeight ? `${screensHeight * 100}vh` : style?.height,
-      }} 
-      {...rest} 
+      }}
+      {...rest}
     >
       {children}
     </div>
-  )
-}
+  );
+};
 
 export default Window;

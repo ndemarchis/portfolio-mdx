@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from "react";
 import fs from "fs";
 import matter from "gray-matter";
-import { MDXRemote } from "next-mdx-remote/rsc";
+import { MDXRemote, MDXRemoteProps } from "next-mdx-remote/rsc";
 import { serialize } from "next-mdx-remote/serialize";
 import dynamic from "next/dynamic";
 import Head from "next/head";
@@ -18,27 +18,12 @@ import {
   normalArticleFooter,
 } from "../../../src/components/articles";
 import { formatDate } from "../../../utils/dateUtils";
+import { GetStaticPaths, GetStaticProps } from "next";
 
-const components: Record<string, any> = {
-  // It also works with dynamically-imported components, which is especially
-  // useful for conditionally loading components for certain routes.
-  // See the notes in README.md for more details.
-  //   TestComponent: dynamic(() => import('../../../components/TestComponent')),
+const components: MDXRemoteProps["components"] = {
   a: ExtLink,
-  img: ({
-    src,
-    height,
-    width,
-    alt,
-    ...rest
-  }: {
-    src: string;
-    height: number;
-    width: number;
-    alt: string;
-  }) => (
-    <NextImage src={src} height={height} width={width} alt={alt} {...rest} />
-  ),
+  // @ts-expect-error something with src being undefined
+  img: NextImage,
   Scripture: dynamic(() => import("../../../src/components/texts/Scripture")),
   Verse: dynamic(() => import("../../../src/components/texts/Verse")),
   NoMarginsArticle: dynamic(
@@ -49,7 +34,13 @@ const components: Record<string, any> = {
 };
 
 export default async function ArticlePage({ params }: any) {
-  const { source, frontMatter } = await getArticleData({ params });
+  const {
+    source,
+    frontMatter,
+  }: {
+    source: MDXRemoteProps["source"];
+    frontMatter: Partial<ArticleMetaProps>;
+  } = await getArticleData({ params });
   const RemotedMDX = () => {
     // @ts-expect-error Server Component
     return <MDXRemote source={source} components={components} />;

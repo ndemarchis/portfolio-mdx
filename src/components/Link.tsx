@@ -2,15 +2,14 @@ import NextLink from "next/link";
 
 const Link = ({
   className = "link",
+  href = "#",
   ...props
-}: React.PropsWithChildren<
-  React.HTMLAttributes<HTMLElement> & { href: string }
->) => {
+}: React.PropsWithChildren<React.AnchorHTMLAttributes<HTMLAnchorElement>>) => {
   return (
     <NextLink
       {...props}
       className={className}
-      href={props.href}
+      href={href}
       target="_blank"
       rel="noreferrer noopener"
     >

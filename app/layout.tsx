@@ -11,7 +11,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        {" "}
         <div className="flex-col flex px-5 py-10 gap-5 text-lg my-auto [&>*]:m-auto [&>*]:md:w-1/2 [&>*]:max-w-5xl ">
           {children}
         </div>

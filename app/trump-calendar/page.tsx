@@ -1,7 +1,8 @@
 import { Client } from "@notionhq/client";
-import { NormalArticle } from "../../src/components/articles";
-import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
-import { convertTitle } from "../../utils/notionUtils";
+import {
+  PageObjectResponse,
+} from "@notionhq/client/build/src/api-endpoints";
+import { ExtractResponse } from "../../utils/notionUtils";
 
 async function getCalendar({
   databaseId,
@@ -27,25 +28,33 @@ const TrumpCalendar = async () => {
     databaseId: process.env.NOTION_DATABASE_ID_TRUMP_CALENDAR || "",
   });
 
+  type Formula = ExtractResponse<"formula">;
   const data = calendarData.map((entry) => ({
-    ...entry.properties,
-    name: entry.properties.Name,
     lastEditedTime: entry.last_edited_time,
-    cover: entry.cover,
-    icon: entry.icon,
+    title: (entry.properties.Name as ExtractResponse<"title">).title
+      .map((section) => section.plain_text)
+      .join(""),
+    slug: (
+      (entry.properties.slug as Formula).formula as Extract<
+        Formula["formula"],
+        { type: "string" }
+      >
+    ).string,
+    type: (entry.properties.type as ExtractResponse<"select", "type">).select,
+    date: (entry.properties.date as ExtractResponse<"date">).date,
+    case: (entry.properties.case as ExtractResponse<"multi_select", "case">)
+      .multi_select,
+    location: (
+      entry.properties.location as ExtractResponse<"multi_select", "location">
+    ).multi_select,
   }));
 
-  console.log(data);
-
   return (
-    <NormalArticle>
+    <>
       {data.map((entry, index) => {
-        console.log(entry.name.title);
-        return (
-          <div key={index}>{convertTitle(entry.name.title)}</div>
-        );
+        return <div key={index}>{entry.title}</div>;
       })}
-    </NormalArticle>
+    </>
   );
 };
 

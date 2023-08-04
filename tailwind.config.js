@@ -1,9 +1,10 @@
-const { fontFamily } = require('tailwindcss/defaultTheme');
-
 /** @type {import('tailwindcss').Config} */
+
+const { fontFamily } = require('tailwindcss/defaultTheme');
 
 module.exports = {
   content: [
+    './app/**/*.{js,ts,jsx,tsx,mdx}', // Note the addition of the `app` directory.
     "./pages/**/*.{js,ts,jsx,tsx,md,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,md,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,md,mdx}",

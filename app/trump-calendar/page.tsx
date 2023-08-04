@@ -1,7 +1,5 @@
 import { Client } from "@notionhq/client";
-import {
-  PageObjectResponse,
-} from "@notionhq/client/build/src/api-endpoints";
+import { PageObjectResponse } from "@notionhq/client/build/src/api-endpoints";
 import { ExtractResponse } from "../../utils/notionUtils";
 
 async function getCalendar({
@@ -47,13 +45,60 @@ const TrumpCalendar = async () => {
     location: (
       entry.properties.location as ExtractResponse<"multi_select", "location">
     ).multi_select,
+    icon: entry.icon,
+    cover: entry.cover,
   }));
 
   return (
     <>
-      {data.map((entry, index) => {
-        return <div key={index}>{entry.title}</div>;
-      })}
+      <div className="max-w-xl p-8 mx-auto  ">
+        <ul className="space-y-12">
+          {data.map((entry, index) => {
+            return (
+              <li key={index} className="flex items-start space-x-3">
+                <span className="flex items-center h-8 text-sm">
+                  {" "}
+                  {/** previously an a tag */}
+                  {entry?.icon?.type === "emoji" && entry.icon.emoji}
+                </span>
+                <div className="flex-1 space-y-2">
+                  <div className="flex items-center justify-between space-x-4 ">
+                    <span className="inline-flex items-start space-x-2">
+                      <span // previously an a tag
+                        className="inline-flex items-center px-3 py-1 my-1 space-x-2 text-sm border rounded-full group "
+                      >
+                        <span
+                          aria-hidden="true"
+                          className="h-1.5 w-1.5 rounded-full"
+                        ></span>
+                        <span className="group-hover:underline">
+                          {entry.type?.name}
+                        </span>
+                      </span>
+                      <span>{entry.title}</span>
+                    </span>
+                    <span className="text-xs whitespace-nowrap">
+                      {new Date(entry.date?.start || "").toLocaleDateString(
+                        undefined,
+                        { dateStyle: "full" }
+                      )}
+                    </span>
+                  </div>
+                  <div>
+                    <p>
+                      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                      Tincidunt nunc ipsum tempor purus vitae id. Morbi in
+                      vestibulum nec varius. Et diam cursus quis sed purus nam.
+                      Scelerisque amet elit non sit ut tincidunt condimentum.
+                      Nisl ultrices eu venenatis diam.
+                    </p>
+                  </div>
+                </div>
+              </li>
+            );
+          })}
+        </ul>
+      </div>
     </>
   );
 };

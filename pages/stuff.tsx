@@ -21,6 +21,12 @@ const Stuff = (props: {
       </Head>
       <h1>Articles</h1>
       <Entry
+        title="“The Bucknellian was my college education”"
+        subtitle="Former Editors-in-Chief speak on student journalism"
+        description="The Bucknellian, April 29, 2022"
+        link={{ href: "https://bucknellian.net/111780/", out: true }}
+      />
+      <Entry
         title="It’s all about trust"
         subtitle="As Chief of Public Safety, Steve Barilar worked to build it&nbsp;—&nbsp;how did he do?"
         description="The Bucknellian, January 28, 2022"
@@ -52,7 +58,12 @@ const Stuff = (props: {
           />
         ))}
 
-      <ExLink href="https://muckrack.com/ndemarchis" className="link text-right w-full italic text-sm">read more...</ExLink>
+      <ExLink
+        href="https://muckrack.com/ndemarchis"
+        className="link text-right w-full italic text-sm"
+      >
+        read more...
+      </ExLink>
 
       <h1 className="pt-8">Videos</h1>
       <Entry

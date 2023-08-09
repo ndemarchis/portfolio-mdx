@@ -12,7 +12,7 @@ const About = () => {
       <p>
         i&rsquo;m nick deMarchis, a frontend web engineer and occasional writer.
       </p>
-      <p>
+      {/* <p>
         i am currently a software engineer at{" "}
         <Link href="https://seatgeek.com/about">SeatGeek</Link> in New York.
       </p>
@@ -21,7 +21,7 @@ const About = () => {
         and a minor in film and media studies. i was also the print managing
         editor for <Link href="http://bucknellian.net">The Bucknellian</Link>{" "}
         student newspaper.
-      </p>
+      </p> */}
       <div className="w-full flex justify-center my-10">
         <InLink href="/" className="link">
           back to home

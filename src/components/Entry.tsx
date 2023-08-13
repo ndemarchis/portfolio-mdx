@@ -46,9 +46,9 @@ const Entry = ({
   return (
     <Link
       link={link}
-      className="entry outline outline-tan/50 outline-0 hover:outline-4 outline-offset-8 overflow-visible rounded-lg transition-all hover:text-tan my-1 px-1 w-full flex flex-col gap-1 group"
+      className="entry outline outline-tan/50 outline-0 hover:outline-4 focus:outline-4 focus:outline-white/50 outline-offset-8 overflow-visible rounded-lg transition-all hover:text-tan my-1 px-1 w-full flex flex-col gap-1 group"
     >
-      <div className="leading-tight">
+      <div className="leading-tight text-balance">
         {title && (
           <span className="link-managed">
             {subtitle ? <span>{title}</span> : title}

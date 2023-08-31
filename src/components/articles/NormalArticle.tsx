@@ -8,7 +8,7 @@ const NormalArticle = (
   return (
     <>
       {props.metaProps && <ArticleMeta {...props.metaProps} />}
-      <div className="flex-col flex px-5 py-10 gap-5 text-lg my-auto [&>*]:m-auto [&>*]:md:w-1/2 [&>*]:max-w-5xl ">
+      <div className="flex-col flex px-5 py-10 gap-5 text-lg my-auto [&>*]:w-full [&>*]:m-auto [&>*]:md:w-1/2 [&>*]:max-w-5xl">
         {props.children}
       </div>
     </>

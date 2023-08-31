@@ -10,7 +10,8 @@ const About = () => {
         <title>about | nick deMarchis</title>
       </Head>
       <p>
-        i&rsquo;m nick deMarchis, a frontend web engineer and occasional writer.
+        i&rsquo;m nick deMarchis, a frontend web engineer and writer of ridiculous 
+        words and phrases.
       </p>
       <p>
         i am currently a software engineer at{" "}

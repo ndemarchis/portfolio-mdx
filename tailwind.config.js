@@ -21,6 +21,7 @@ module.exports = {
       black: "#000101",
       white: "#ffffff",
       purple: "#7a1ddd",
+      lightpurple: "#cb9bff",
       tan: "#6b8987",
     },
   },

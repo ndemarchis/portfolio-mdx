@@ -55,10 +55,16 @@ export default function ArticlePage({
           <MDXRemote {...source} components={components} />
         ) : (
           <NormalArticle>
-            <p className="text-right italic">
-              {frontMatter?.publishedOn && formatDate(frontMatter?.publishedOn)}
-            </p>
             {normalArticleHeadline(frontMatter)}
+            <p className="text-center italic bg-lightpurple text-black !w-full !max-w-none !my-4 p-4 uppercase text-xs font-black box-border">
+              {[
+                ...[
+                  frontMatter?.publishedOn &&
+                    formatDate(frontMatter?.publishedOn),
+                ],
+                ...[frontMatter?.publishedUrl && frontMatter?.publication],
+              ].join(", ")}
+            </p>
             <MDXRemote {...source} components={components} />
             {normalArticleFooter(frontMatter)}
           </NormalArticle>

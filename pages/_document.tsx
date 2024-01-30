@@ -1,7 +1,5 @@
 /* eslint-disable react/no-unescaped-entities */
 import { Html, Head, Main, NextScript } from "next/document";
-import { SpeedInsights } from "@vercel/speed-insights/next"
-import { Analytics } from '@vercel/analytics/react';
 import Script from "next/script";
 
 const MyDocument = () => {
@@ -12,8 +10,6 @@ const MyDocument = () => {
       <body>
         <Main />
         <NextScript />
-        <Analytics />
-        <SpeedInsights />
       </body>
     </Html>
   );

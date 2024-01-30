@@ -1,5 +1,7 @@
 import React from "react";
 import localFont from "next/font/local";
+import { SpeedInsights } from "@vercel/speed-insights/next"
+import { Analytics } from '@vercel/analytics/react';
 import "../styles/globals.css";
 import type { AppProps } from "next/app";
 
@@ -28,7 +30,9 @@ function MyApp({ Component, pageProps }: AppProps) {
     <main
       className={`flex flex-col h-full justify-stretch ${inter.variable} ${libreBaskerville.variable} font-primary`}
     >
-      <Component {...pageProps} />
+      <Component {...pageProps} />        
+      <Analytics />
+      <SpeedInsights />
     </main>
   );
 }

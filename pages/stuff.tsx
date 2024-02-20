@@ -70,6 +70,7 @@ const Stuff = (props: {
       <Entry
         title="&ldquo;or as needed&rdquo;"
         subtitle="a short film"
+        description="May 9, 2020"
         link={{
           out: true,
           href: "https://youtu.be/Jz_2KaMyF5Y/",
@@ -86,6 +87,7 @@ const Stuff = (props: {
       <Entry
         title="&ldquo;let it go&rdquo;"
         subtitle="a piano and cello cover of james bay"
+        description="June 29, 2019"
         link={{
           out: true,
           href: "https://youtu.be/3tOWhpLQrYc",
@@ -95,6 +97,7 @@ const Stuff = (props: {
       <Entry
         title="US20230417899A1"
         subtitle="Position tracking for a lift device"
+        description="December 28, 2023"
         link={{
           out: true,
           href: "https://patents.google.com/patent/US20230417899A1",

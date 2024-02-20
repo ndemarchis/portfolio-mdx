@@ -101,7 +101,8 @@ const Stuff = (props: {
       />
       <h1 className="pt-8">Projects</h1>
       <Entry
-        title="US20230417899A1 — Position tracking for a lift device"
+        title="US20230417899A1"
+        subtitle="Position tracking for a lift device"
         link={{
           out: true,
           href: "https://patents.google.com/patent/US20230417899A1",
